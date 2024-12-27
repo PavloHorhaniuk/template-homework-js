@@ -21,6 +21,63 @@
 
 let y = 1;
 
-while (y <=10, y++){
-console.log(y)
+while (y <= 10) {
+    console.log(y)
+    y++
+}
+
+console.log('----------------------')
+
+for (let P = 2; P <= 20; P++) {
+    if (P % 2 !== 0) {
+        continue;
+    }
+    console.log(P)
+}
+
+console.log('----------------------')
+
+for (let M = 1; M <= 10; M++) {
+    console.log(`7 x ${M} = ${7 * M}`)
+}
+
+console.log('----------------------')
+
+let numbers1 = [1, 2, 3, 4, 5,]
+let i = 0
+while (i < numbers1.length) {
+    console.log(numbers1[i]);
+    i++;
+}
+
+console.log('----------------------')
+
+
+for (let i = 1; i <= 10; i++) {
+    if (i === 7) {
+        break
+    }
+    console.log(i);
+}
+
+console.log('----------------------')
+
+let n = 15
+for (let i = 1; i < n; i++) {
+    if (i >= n) {
+        break
+    }
+    console.log(i)
+}
+
+console.log('----------------------')
+
+let H = 1
+while (H <= 20) {
+    if (H % 3 === 0) {
+        H++
+        continue;
+    }
+console.log(H);
+H++
 }
