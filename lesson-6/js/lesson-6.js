@@ -52,8 +52,8 @@ while (i < numbers1.length) {
 
 console.log('----------------------')
 
-
-for (let i = 1; i <= 10; i++) {
+let numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for (let i = 0; i < numbers2.length; i+= 1) {
     if (i === 7) {
         break
     }
