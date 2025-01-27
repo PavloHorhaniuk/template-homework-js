@@ -3,13 +3,11 @@
 // якщо так, то виводити повідомлення "Текст містить слово JavaScript",
 // якщо ні — "Текст не містить слово JavaScript".
 
-function checkText() {
+const userInput = prompt("Введіть текст:");
 
-    var text = document.getElementById("inputText").value;
-
-    if (text.includes("JavaScript")) {
-        alert("Текст містить слово JavaScript");
-    } else {
-        alert("Текст не містить слово JavaScript");
-    }
+// Перевіряємо, чи містить текст слово "JavaScript"
+if (userInput && userInput.includes("JavaScript")) {
+  alert("Текст містить слово JavaScript");
+} else {
+  alert("Текст не містить слово JavaScript");
 }

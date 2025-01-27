@@ -5,29 +5,24 @@
 // дані: ім'я містить не менше 3 символів, email містить символ @ та крапку після неї, пароль містить не менше 6 символів.
 
 
-function validateForm() {
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    if (name.length < 3) {
-        alert("Ім'я повинно містити не менше 3 символів.");
-        return false;
+// Запитуємо ім'я через prompt
+const name = prompt("Введіть своє ім'я (не менше 3 символів):");
+if (!name || name.length < 3) {
+  console.error("Помилка: Ім'я повинно містити не менше 3 символів.");
+} else {
+  // Запитуємо email через prompt
+  const email = prompt("Введіть свій email (повинен містити '@' та крапку після):");
+  if (!email || !email.includes("@") || !email.includes(".") || email.lastIndexOf(".") < email.indexOf("@")) {
+    console.error("Помилка: Введіть коректну адресу email.");
+  } else {
+    // Запитуємо пароль через prompt
+    const password = prompt("Введіть свій пароль (не менше 6 символів):");
+    if (!password || password.length < 6) {
+      console.error("Помилка: Пароль повинен містити не менше 6 символів.");
+    } else {
+      // Якщо всі перевірки пройдені, виводимо повідомлення про успіх у консоль
+      console.log("Введені дані коректні! Перенаправляємо вас на іншу сторінку...");
+      console.log("https://pavlohorhaniuk.github.io/britlex-team-project/"); // Симуляція перенаправлення
     }
-
-    if (!email.includes("@") || !email.includes(".")) {
-        alert("Email має містити символ @ та крапку.");
-        return false;
-    }
-
-    if (password.length < 6) {
-        alert("Пароль має містити не менше 6 символів.");
-        return false;
-    }
-
- 
-    window.location.href = "https://example.com";
-    return false; 
-
+  }
 }
