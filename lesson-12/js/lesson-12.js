@@ -15,6 +15,14 @@ const user = {
 };
 //! Код виконаного завдання
 
+user.mood = 'happy';
+
+user.hobby = 'skydiving';
+
+user.premium = false;
+
+console.log(user)
+
 console.log("--------------------------------------------------");
 
 
@@ -28,7 +36,7 @@ console.log(
 //? Функція повертає число — кількість властивостей.
 //! Код виконаного завдання
 const countProps = function (obj) {
-    //! твій код
+    return Object.keys(obj).length;
 };
 //! Викличи функції для перевірки працездатності твоєї реалізації.
 console.log(countProps({})); //! 0
@@ -48,7 +56,17 @@ console.log(
 //? як властивості об'єкта в форматі "ім'я":"кількість задач".
 //! Код виконаного завдання
 const findBestEmployee = function (employees) {
-    //! твій код
+    let bestEmployee = "";
+    let maxTasks = 0;
+
+    for (const employee in employees) {
+        if (employees[employee] > maxTasks) {
+            maxTasks = employees[employee];
+            bestEmployee = employee;
+        }
+    }
+
+    return bestEmployee;
 };
 
 //! Викличи функції для перевірки працездатності твоєї реалізації.
@@ -90,7 +108,13 @@ console.log(
 //? Кожне поле об'єкта, переданого в функцію, має вигляд "ім'я":"зарплата".
 //! Код виконаного завдання
 const countTotalSalary = function (employees) {
-    //! твій код
+    let totalSalary = 0;
+
+    for (const salary of Object.values(employees)){
+        totalSalary += salary
+    }
+
+    return totalSalary
 };
 
 //! Викличи функції для перевірки працездатності твоєї реалізації.
@@ -133,6 +157,7 @@ const products = [
 
 const getAllPropValues = function (arr, prop) {
     //! твій код
+    return arr.map(item => item[prop]).filter(value => value !== undefined);
 };
 
 //! Викличи функції для перевірки працездатності твоєї реалізації.
@@ -155,7 +180,14 @@ console.log(
 //! Код виконаного завдання
 const calculateTotalPrice = function (allProdcuts, productName) {
     //! твій код
+    for (const product of allProdcuts) {
+        if (product.name === productName){
+            return product.price * product.quantity
+        }
+    }
+    return 0;
 };
+
 
 //! Викличи функції для перевірки працездатності твоєї реалізації.
 console.log(calculateTotalPrice(products, 'Радар')); //! 5200

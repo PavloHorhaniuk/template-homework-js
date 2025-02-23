@@ -102,6 +102,7 @@ console.log(
 //? Отримай масив імен всіх користувачів (поле name).
 const getUserNames = users => {
     //! твій код
+    // return users.map(user => user.name);
 };
 
 console.log(getUserNames(users)); //! [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
@@ -117,6 +118,7 @@ console.log(
 //? Отримай масив об'єктів користувачів за кольором очей (поле eyeColor).
 const getUsersWithEyeColor = (users, color) => {
     //! твій код
+    return users.filter(user => user.eyeColor === color);
 };
 
 console.log(getUsersWithEyeColor(users, 'blue')); //! [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
@@ -132,6 +134,7 @@ console.log(
 //? Отримати масив імен користувачів за статтю (поле gender).
 const getUsersWithGender = (users, gender) => {
     //! твій код
+    return users.filter(user => user.gender === gender);
 };
 
 console.log(getUsersWithGender(users, 'male')); //! [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
@@ -147,6 +150,7 @@ console.log(
 //? Отримати масив тільки неактивних користувачів (поле isActive).
 const getInactiveUsers = users => {
     //! твій код
+    return users.filter(user => !user.isActive);
 };
 
 console.log(getInactiveUsers(users)); //! [об'єкт Moore Hensley, об'єкт Ross Vazquez, об'єкт Blackburn Dotson]
@@ -156,12 +160,13 @@ console.log("--------------------------------------------------");
 
 //todo [5]
 console.log(
-    "%c [3] ",
+    "%c [5] ",
     "color: yellow; background-color: #2274A5",
 );
 //? Отримати користувача (не масив) по email (поле email, він унікальний).
 const getUserWithEmail = (users, email) => {
     //! твій код
+    return users.find(user => user.email === email);
 };
 
 console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); //! {об'єкт користувача Sheree Anthony}

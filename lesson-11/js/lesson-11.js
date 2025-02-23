@@ -26,6 +26,34 @@ console.log(
 //? ✳️ За допомогою виклика методу "withdraw" об'єкта "bankAccount" зніми кошти з рахунку.
 //! Код виконаного завдання
 
+const bankAccount = {
+    ownerName: "Josh Doe",
+    accountNumber: "123-456-789",
+    balance: 1000,
+
+    deposit: function (amount) {
+        this.balance += amount;
+        console.log(`✅ Поповнено рахунок на ${amount}$. Залишок на рахунку: ${this.balance}$`);
+    },
+
+
+    withdraw: function (amount) {
+        if (this.balance >= amount) {
+            this.balance -= amount;
+            console.log(`✅ Знято ${amount}$. Залишок на рахунку: ${this.balance}$`);
+        } else {
+            console.log("⛔️ Не достатньо коштів на вашому рахунку!");
+        }
+    }
+};
+bankAccount.deposit(500); // Поповнити на 500$
+bankAccount.deposit(200); // Поповнити на 200$
+
+console.log("---");
+
+bankAccount.withdraw(300); // Зняти 300$
+bankAccount.withdraw(1500); // Спроба зняти більше, ніж на рахунку
+
 console.log("--------------------------------------------------");
 
 
@@ -48,6 +76,21 @@ console.log(
 //? дублюючи ці повідомлення  в консоль.
 //! Код виконаного завдання
 
+const weather = {
+    temperature: 10,
+    humidity: 80,
+    windSpeed: 10,
+
+    isBelowZero() {
+        return this.temperature < 0;
+    }
+};
+
+if (weather.isBelowZero()) {
+    console.log("❄️ Температура нижче 0 градусів Цельсія");
+} else {
+    console.log("☀️ Температура вище або дорівнює 0 градусів Цельсія");
+}
 console.log("--------------------------------------------------");
 
 
@@ -72,6 +115,40 @@ console.log(
 //? треба послідовно вивести в косоль значення ВСІХ цих даних.
 //! Код виконаного завдання
 
+const user = {
+    name: "Pavlo",
+    email: "homework@gmail.com",
+    password: "123777",
+};
+
+user.login = function() {
+    let errors = [];
+    
+    if (this.name.length < 3){
+        errors.push("⛔ Ім'я має містити не менше 3 символів!") 
+    }
+
+    if(!this.email.includes("@") || !this.email.includes(".")){
+        errors.push("⛔ Неправильний формат email! Має містити '@' та '.'")
+    }
+
+    if (this.password.length < 6) {
+        errors.push("⛔ Пароль має містити не менше 6 символів!");
+    }
+
+    if (errors.length > 0) {
+        console.log("❌ Помилки при вході:")
+        errors.forEach(error => console.log(error))
+    } else {
+        console.log("✅ Вхід успішний!");
+        console.log(`👤 Ім'я: ${this.name}`);
+        console.log(`📧 Email: ${this.email}`);
+        console.log(`🔑 Пароль: ${this.password}`);
+    }
+};
+
+user.login()
+
 console.log("--------------------------------------------------");
 
 
@@ -94,5 +171,24 @@ console.log(
 //? Якщо метод повернув "false",
 //? то колір тексту поля title в консолі повинен бути червоний.
 //! Код виконаного завдання
+
+const movie = {
+    title: "Inception",
+    director: "Christopher Nolan",
+    year: 2010,
+    rating: 8.8
+};
+
+movie.isHighRated = function() {
+    return this.rating > 8;
+};
+
+
+
+console.log("Title:", `%c${movie.title}`, `color: ${movie.isHighRated() ? 'green' : 'red'}`);
+console.log("Director:", movie.director);
+console.log("Year:", movie.year);
+console.log("Rating:", movie.rating);
+console.log("Is high rated?", movie.isHighRated()); // true або false
 
 console.log("--------------------------------------------------");
