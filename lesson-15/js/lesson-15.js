@@ -99,13 +99,12 @@ console.log(
     "%c [1] ",
     "color: yellow; background-color: #2274A5",
 );
-//? Отримай масив імен всіх користувачів (поле name).
-const getUserNames = users => {
-    //! твій код
-    return users.map(user => user.name);
+//? Отримати загальну суму балансу (поле balance) всіх користувачів.
+const calculateTotalBalance = users => {
+    return users.reduce((total, user) => total + user.balance, 0);  
 };
 
-console.log(getUserNames(users)); //! [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
+console.log(calculateTotalBalance(users)); //! 20916
 console.log("--------------------------------------------------");
 
 
@@ -115,13 +114,18 @@ console.log(
     "%c [2] ",
     "color: yellow; background-color: #2274A5",
 );
-//? Отримай масив об'єктів користувачів за кольором очей (поле eyeColor).
-const getUsersWithEyeColor = (users, color) => {
-    //! твій код
-    return users.filter(user => user.eyeColor === color);
+//? Отримати масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
+const getUsersWithFriend = (users, friendName) => {
+    return users.reduce((acc, user) => {
+        if (user.friends.includes(friendName)){
+            acc.push(user.name)
+        }
+        return acc;
+    }, []);
 };
 
-console.log(getUsersWithEyeColor(users, 'blue')); //! [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
+console.log(getUsersWithFriend(users, 'Briana Decker')); //! [ 'Sharlene Bush', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, 'Goldie Gentry')); //! [ 'Elma Head', 'Sheree Anthony' ]
 console.log("--------------------------------------------------");
 
 
@@ -131,13 +135,16 @@ console.log(
     "%c [3] ",
     "color: yellow; background-color: #2274A5",
 );
-//? Отримати масив імен користувачів за статтю (поле gender).
-const getUsersWithGender = (users, gender) => {
-    //! твій код
-    return users.filter(user => user.gender === gender);
+//? Отримати масив імен (поле name) людей,
+//? відсортованих в залежності від кількості їх друзів (поле friends)
+const getNamesSortedByFriendsCount = users => {
+    return users
+    .slice()
+    .sort((a, b) => a.friends.lenght - b.friends.lenght)
+    .map(user => user.name);
 };
 
-console.log(getUsersWithGender(users, 'male')); //! [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+console.log(getNamesSortedByFriendsCount(users)); //! [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 console.log("--------------------------------------------------");
 
 
@@ -147,49 +154,18 @@ console.log(
     "%c [4] ",
     "color: yellow; background-color: #2274A5",
 );
-//? Отримати масив тільки неактивних користувачів (поле isActive).
-const getInactiveUsers = users => {
-    //! твій код
-    return users.filter(user => !user.isActive);
+//? Отримати масив всіх умінь всіх користувачів (поле skills), 
+//? при цьому не має бути повторюваних умінь 
+//? і вони повинні бути відсортовані в алфавітному порядку.
+const getSortedUniqueSkills = users => {
+    return users
+        .reduce((acc, user) => {
+            acc.push(...user.skills);
+            return acc;
+        }, [])
+        .filter((skills, index, arr) => arr.indexOf(skills) === index)
+        .sort()
 };
 
-console.log(getInactiveUsers(users)); //! [об'єкт Moore Hensley, об'єкт Ross Vazquez, об'єкт Blackburn Dotson]
+console.log(getSortedUniqueSkills(users)); //! [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
 console.log("--------------------------------------------------");
-
-
-
-//todo [5]
-console.log(
-    "%c [5] ",
-    "color: yellow; background-color: #2274A5",
-);
-//? Отримати користувача (не масив) по email (поле email, він унікальний).
-const getUserWithEmail = (users, email) => {
-    //! твій код
-    return users.find(user => user.email === email);
-};
-
-console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); //! {об'єкт користувача Sheree Anthony}
-console.log(getUserWithEmail(users, 'elmahead@omatom.com')); //! {об'єкт користувача Elma Head}
-console.log("--------------------------------------------------");
-
-
-//! ПРАКТИКА-14 (Урок-14_JS)
-//todo [Додаткове 14-1]
-console.log(
-    "%c [Додаткове 14-1] ",
-    "color: yellow; background-color: #2274A5",
-  );
-  //? Повернути масив користувачів, вік (збережений у властивості age) яких
-  //? потрапляє у заданий діапазон від minAge до maxAge
-  const getUsersWithAge = (users, minAge, maxAge) => {
-    //! твій код
-
-    return users.filter(user => user.age >= minAge && user.age <= maxAge);
-  
-  };
-  
-  console.log(getUsersWithAge(users, 20, 30)); //! [об'єкт Ross Vazquez, об'єкт Elma Head, об'єкт Carey Barr]
-  console.log(getUsersWithAge(users, 30, 40)); //! [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Blackburn Dotson, об'єкт Sheree Anthony]
-  console.log("--------------------------------------------------");
-  

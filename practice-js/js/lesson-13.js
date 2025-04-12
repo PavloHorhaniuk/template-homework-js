@@ -47,10 +47,10 @@
 
 
 //todo [1]
-console.log(
-    "%c [1] ",
-    "color: yellow; background-color: #2274A5",
-);
+// console.log(
+//     "%c [1] ",
+//     "color: yellow; background-color: #2274A5",
+// );
 //? ✴️ Створіть об'єкт "bankAccount" з трьома властивостями:
 //?  "ownerName", "accountNumber", "balance"
 //? та додайте їм будь-яких логічних значень значень.
@@ -111,70 +111,94 @@ console.log(
 
 
 
-//todo [6]
-console.log(
-    "%c [6] ",
-    "color: yellow; background-color: #2274A5",
-);
-//? ✴️ Напиши сценарій керування особистим кабінетом інтернет-банку.
-//? Є об'єкт account в якому необхідно реалізувати методи 
-//? для роботи з балансом та історією транзакцій.
-//? ✳️ Типів транзацкій всього два.
-//? Можна покласти або зняти гроші з рахунку.
-const Transaction = {
-    DEPOSIT: 'deposit',
-    WITHDRAW: 'withdraw',
-};
+// //todo [6]
+// console.log(
+//     "%c [6] ",
+//     "color: yellow; background-color: #2274A5",
+// );
+// //? ✴️ Напиши сценарій керування особистим кабінетом інтернет-банку.
+// //? Є об'єкт account в якому необхідно реалізувати методи 
+// //? для роботи з балансом та історією транзакцій.
+// //? ✳️ Типів транзацкій всього два.
+// //? Можна покласти або зняти гроші з рахунку.
+// const Transaction = {
+//     DEPOSIT: 'deposit',
+//     WITHDRAW: 'withdraw',
+// };
 
-//todo: Кожна транзакція - це об'єкт з властивостями: id, type і amount
+// //todo: Кожна транзакція - це об'єкт з властивостями: id, type і amount
 
-const account = {
-    //todo: Поточний баланс рахунку
-    balance: 0,
-    //todo:  Історія транзакцій
-    transactions: [],
+// const account = {
+//     //todo: Поточний баланс рахунку
+//     balance: 0,
+//     //todo:  Історія транзакцій
+//     transactions: [],
 
 
-    //todo:  Метод створює і повертає об'єкт транзакції.
-    //todo:  Приймає суму і тип транзакції.
-    createTransaction(amount, type) {
-        const transactionsObject = { 
-            id
-            type
-            amount
-        }
+//     //todo:  Метод створює і повертає об'єкт транзакції.
+//     //todo:  Приймає суму і тип транзакції.
+//     createTransaction(amount, type) {
+//         const transactionsObject = { 
+//             id
+//             type
+//             amount
+//         }
 
-        console.log(transactionsObject)
-        return transactionsObject
-    },
+//         console.log(transactionsObject)
+//         return transactionsObject
+//     },
     
 
-    //todo:  Метод відповідає за додавання суми до балансу.
-    //todo:  Приймає суму танзакції.
-    //todo:  Викликає createTransaction для створення об'єкта транзакції
-    //todo:  після чого додає його в історію транзакцій
-    deposit(amount) { },
+//     //todo:  Метод відповідає за додавання суми до балансу.
+//     //todo:  Приймає суму танзакції.
+//     //todo:  Викликає createTransaction для створення об'єкта транзакції
+//     //todo:  після чого додає його в історію транзакцій
+//     deposit(amount) { },
 
     
-    //todo:  Метод відповідає за зняття суми з балансу.
-    //todo:  Приймає суму танзакції.
-    //todo:  Викликає createTransaction для створення об'єкта транзакції
-    //todo:  після чого додає його в історію транзакцій.
-    //todo:  Якщо amount більше, ніж поточний баланс, виводь повідомлення
-    //todo:  про те, що зняття такої суми не можливо, недостатньо коштів.
-    withdraw(amount) { },
+//     //todo:  Метод відповідає за зняття суми з балансу.
+//     //todo:  Приймає суму танзакції.
+//     //todo:  Викликає createTransaction для створення об'єкта транзакції
+//     //todo:  після чого додає його в історію транзакцій.
+//     //todo:  Якщо amount більше, ніж поточний баланс, виводь повідомлення
+//     //todo:  про те, що зняття такої суми не можливо, недостатньо коштів.
+//     withdraw(amount) { },
 
-    //todo:  Метод повертає поточний баланс
-    getBalance() { },
+//     //todo:  Метод повертає поточний баланс
+//     getBalance() { },
 
-    //todo:  Метод шукає і повертає об'єкт транзакції по id
-    getTransactionDetails(id) { },
+//     //todo:  Метод шукає і повертає об'єкт транзакції по id
+//     getTransactionDetails(id) { },
 
-    //todo:  Метод повертає кількість коштів
-    //todo:  певного типу транзакції з усієї історії транзакцій
-    getTransactionTotal(type) { },
-};
-//! Код виконаного завдання
+//     //todo:  Метод повертає кількість коштів
+//     //todo:  певного типу транзакції з усієї історії транзакцій
+//     getTransactionTotal(type) { },
+// };
+// //! Код виконаного завдання
 
-console.log("--------------------------------------------------");
+// console.log("--------------------------------------------------");
 
+
+//todo var.1
+function example1(arr) {
+    arr.reduce((acc, element, index) => {
+        console.log(` acc: ${acc} index: ${index} element: ${element}`)
+    }, 0);
+}
+example1(["Робітник1", "Робітник2", "Робітник3"]);
+
+
+function example2(arr) {
+    arr.map(( element, index) => {
+        console.log(`index: ${index} element: ${element}`)
+    }, 0);
+}
+example2(["Робітник1", "Робітник2", "Робітник3"]);
+
+
+function example3(arr) {
+    arr.reduce((element, index) => {
+        console.log(`index: ${index} element: ${element}`)
+    }, 0);
+}
+example3(["Робітник1", "Робітник2", "Робітник3"]);
