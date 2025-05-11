@@ -25,6 +25,19 @@ console.log(
 */
 //! Код виконаного завдання
 
+
+const form = document.querySelector('.form');
+
+form.addEventListener('change', (event) => {
+    if (event.target.name === 'color') {
+        document.body.style.backgroundColor = event.target.value;
+    }
+});
+
+// Зміна кольору фону під час завантаження сторінки відповідно до вибраного
+const selectedColor = form.querySelector('input[name="color"]:checked').value;
+document.body.style.backgroundColor = selectedColor;
+
 console.log("--------------------------------------------------");
 
 
@@ -44,6 +57,14 @@ console.log(
 <h1>Привіт, <span id="name-output">незнайомець</span>!</h1>
 */
 //! Код виконаного завдання
+
+const input = document.querySelector('#name-input');
+const output = document.querySelector('#name-output');
+
+input.addEventListener('input', () => {
+    const trimmedValue = input.value.trim();
+    output.textContent = trimmedValue === '' ? 'незнайомець' : trimmedValue;
+});
 
 console.log("--------------------------------------------------");
 
@@ -85,21 +106,22 @@ console.log(
 }
 */
 //! Код виконаного завдання
+    // Перевірка кількості символів в інпуті #validation-input
+    const validationInput = document.querySelector('#validation-input');
+    const requiredLength = Number(validationInput.dataset.length);
 
-const input = document.getElementById('validation-input');
+    validationInput.addEventListener('blur', () => {
+        const trimmedValue = validationInput.value.trim();
 
-console.log("input: ", input)
+        // Спочатку видаляємо обидва класи
+        validationInput.classList.remove('valid', 'invalid');
 
-const inspectsInput = function (event) {
-    console.log("input.dataset.length:", input.dataset.length);
-    console.log("input.value.length:", input.value.length);
-
-    if (input.value.length >= Number(input.dataset.length) ) {
-        co
-    };
-};
-
-input.addEventListener("blur", inspectsInput);
+        if (trimmedValue.length === requiredLength) {
+            validationInput.classList.add('valid');
+        } else {
+            validationInput.classList.add('invalid');
+        }
+    });
 
 console.log("--------------------------------------------------");
 
@@ -122,6 +144,14 @@ console.log(
 <input id="font-size-control" type="range" />
 */
 //! Код виконаного завдання
+
+const fontSizeControl = document.querySelector('#font-size-control');
+const text = document.querySelector('#text');
+
+fontSizeControl.addEventListener('input', () => {
+    const fontSize = fontSizeControl.value + 'px';
+    text.style.fontSize = fontSize;
+});
 
 console.log("--------------------------------------------------");
 
