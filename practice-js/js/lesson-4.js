@@ -55,3 +55,18 @@ if (number < x1) {
 //   if (number < x1) {
 //     console.log(`Число ${number} входить у відрізок ДО ${x1}`);
 //   }
+
+
+const camelCase = _.camelCase('title-lesson');
+_.camelCase('title-lesson');
+
+console.log(camelCase)
+
+
+const endsWith = _.endsWith('I like learning Java Script', "Script");
+
+console.log(endsWith)
+
+const kebabCase = _.kebabCase('Foo Bar');
+
+console.log(kebabCase)
