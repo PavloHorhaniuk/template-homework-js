@@ -20,3 +20,19 @@ function updateImegeSize(event) {
 const debouncedResize = debounce(updateImegeSize, 100);
 
 sliderInput.addEventListener('input', debouncedResize)
+
+
+const box = document.getElementById('box');
+
+  // Функція, що буде викликана при русі мишки
+  function moveBox(event) {
+    box.style.left = event.clientX + 'px';
+    box.style.top = event.clientY + 'px';
+  }
+
+  // Створюємо дебаунс-версію функції з затримкою 100 мс
+  const debouncedMoveBox = _.debounce(moveBox, 100);
+
+  // Додаємо обробник події
+  document.addEventListener('mousemove', debouncedMoveBox);
+  
