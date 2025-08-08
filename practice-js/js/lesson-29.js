@@ -217,3 +217,30 @@ console.log("date: ", Date.parse(new Date()))
 //? 🔸 HH:mm:ss.sss — це час: години, хвилини, секунди і мілісекунди.
 //? 🔸 'Z' - необов’язкова частина яка позначає часовий пояс у форматі +-hh:mm.
 //?    Одинична буква Z буде означати UTC+0.
+
+
+
+const isSuccess = true; //* ✅
+// const isSuccess = false; //! ❌
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (isSuccess) {
+            resolve("✅ Success! Value passed to resolve function");
+        } else {
+            reject("❌ Error! Error passed to reject function");
+        }
+    }, 2000);
+});
+
+//todo ⏳
+console.log("promise ⏳:", promise); //! Promise {<pending>}
+
+//* ✅ або ❌
+setTimeout(() => {
+    console.log("promise_setTimeout:", promise);
+    //* Promise {<fulfilled>: '✅ Success! Value passed to resolve function'}
+    //? або
+    //! Promise {<rejected>: '❌ Error! Error passed to reject function'}
+}, 2500);
+
